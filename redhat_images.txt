@@ -1,0 +1,4 @@
+rhel6.5
+rhel7.0
+rhel7.1
+fedora:20
