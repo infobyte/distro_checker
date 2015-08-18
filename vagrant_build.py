@@ -11,14 +11,34 @@ import re
 import uuid
 import os
 
+#ubuntu/vivid64 #Ubuntu Server 15.04 (Vivid Vervet) builds
+#ubuntu/trusty64 #Ubuntu Server 14.04 LTS (Trusty Tahr) builds
+#ubuntu/precise64 #Ubuntu Server 12.04 LTS (Precise Pangolin) builds
+#centos/7 https://atlas.hashicorp.com/centos/boxes/7 
 
 distros = [
+           {'name' :'centos/7',
+            'url':'https://atlas.hashicorp.com/centos/7',
+            'provider':'virtualbox'},
+
+           {'name' :'ubuntu/vivid64',
+            'url':'https://atlas.hashicorp.com/ubuntu/vivid64',
+            'provider':'virtualbox'},
+
+           {'name' :'ubuntu/trusty64',
+            'url':'https://atlas.hashicorp.com/ubuntu/trusty64',
+            'provider':'virtualbox'},
+
+           {'name' :'ubuntu/vivid64',
+            'url':'https://atlas.hashicorp.com/ubuntu/vivid64',
+            'provider':'virtualbox'},
+                                    
            {'name' :'debian/jessie64',
             'url':'https://atlas.hashicorp.com/debian/jessie64',
             'provider':'virtualbox'},
            {'name' :'debian/wheezy64',
             'url':'https://atlas.hashicorp.com/debian/wheezy64',
-            'provider':'virtualbox'},            
+            'provider':'virtualbox'},
           ]
 
 def parse_args():
@@ -46,7 +66,7 @@ if __name__ == '__main__':
         for d in distros:
             try:
                 print "Download Vagrant: " + d['name']
-                subprocess.call('vagrant box add %s %s' % (d['name'],d['url']), shell=True)
+                subprocess.call('vagrant box add %s %s --provider %s' % (d['name'],d['url'],d['provider']), shell=True)
                 print "Start Vagrant: " + d['name']
                 newVagrant = re.sub("BUILDDISTRO", d['name'], baseVagrant)
                 file_ = open('Vagrantfile', 'w')
