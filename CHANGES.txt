@@ -1,0 +1,5 @@
+* v1.0.1 (08/18/15):
+* Adding support to vagrant (vagrant_build.py)
+
+* v1.0.0 (07/28/15):
+First release (Docker version)
