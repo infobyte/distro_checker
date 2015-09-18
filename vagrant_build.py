@@ -28,10 +28,6 @@ distros = [
            {'name' :'ubuntu/trusty64',
             'url':'https://atlas.hashicorp.com/ubuntu/trusty64',
             'provider':'virtualbox'},
-
-           {'name' :'ubuntu/vivid64',
-            'url':'https://atlas.hashicorp.com/ubuntu/vivid64',
-            'provider':'virtualbox'},
                                     
            {'name' :'debian/jessie64',
             'url':'https://atlas.hashicorp.com/debian/jessie64',
